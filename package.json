@@ -1,0 +1,23 @@
+{
+  "name": "@europeana/fashion-redirects",
+  "description": "Europeana Fashion redirects as an OpenWhisk web action.",
+  "author": "Richard Doe <richard.doe@europeana.eu>",
+  "keywords": [
+    "code4lib",
+    "serverless",
+    "openwhisk"
+  ],
+  "license": "EUPL-1.1",
+  "dependencies": {
+    "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/europeana/fashion-redirects.js.git"
+  },
+  "main": "fashion_redirects.js",
+  "version": "0.1.0"
+}
