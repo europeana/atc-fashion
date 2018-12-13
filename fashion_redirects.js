@@ -5,7 +5,7 @@ const { promisify } = require('util');
  * @param {Object} params - OpenWhisk parameters
  * @return {Object} OpenWhisk web action response
  */
-function main(params) {
+function main(params = {}) {
   if (params.__ow_path === undefined) {
     return { statusCode: 400, body: 'Bad Request' };
   }
