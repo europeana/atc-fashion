@@ -7,9 +7,11 @@ const { promisify } = require('util');
  */
 function main(params = {}) {
   if (params.__ow_path === undefined) {
+    /* eslint-disable no-unused-vars */
     return new Promise((resolve, reject) => {
       resolve({ statusCode: 400, body: 'Bad Request' });
     });
+    /* eslint-enable no-unused-vars */
   }
 
   const redisClient = createRedisClient(params);
