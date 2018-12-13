@@ -3,11 +3,13 @@ const { promisify } = require('util');
 
 /**
  * @param {Object} params - OpenWhisk parameters
- * @return {Object} OpenWhisk web action response
+ * @return {Promise} OpenWhisk web action response promise
  */
 function main(params = {}) {
   if (params.__ow_path === undefined) {
-    return { statusCode: 400, body: 'Bad Request' };
+    return new Promise((resolve, reject) => {
+      resolve({ statusCode: 400, body: 'Bad Request' });
+    });
   }
 
   const redisClient = createRedisClient(params);

@@ -14,9 +14,12 @@ describe('main()', () => {
     redisClient.quit();
   });
 
-  it('should return statusCode 400 if no path is passed', () => {
-    let response = fashion_redirects.main();
-    expect(response.statusCode).to.equal(400);
+  it('should return statusCode 400 if no path is passed', (done) => {
+    let mainPromise = fashion_redirects.main();
+
+    mainPromise.then((response) => {
+      expect(response.statusCode).to.equal(400);
+    }).finally(done);
   });
 
   it('should return a redirect if valid path is passed', (done) => {
