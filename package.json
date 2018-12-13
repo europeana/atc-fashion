@@ -27,7 +27,7 @@
   "main": "fashion_redirects.js",
   "scripts": {
     "pretest": "docker-compose -f test/docker-compose.yml up -d",
-    "test": "nyc mocha",
+    "test": "nyc --reporter=lcov mocha",
     "posttest": "docker-compose -f test/docker-compose.yml down"
   },
   "version": "0.1.0"
