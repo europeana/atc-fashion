@@ -8,6 +8,7 @@ rules:
   no-console:
     - 0
   no-trailing-spaces: 1
+  no-var: error
   indent:
     - error
     - 2
@@ -23,3 +24,4 @@ rules:
     - always
   no-useless-escape:
     - 0
+  prefer-arrow-callback: error

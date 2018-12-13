@@ -1,6 +1,10 @@
 const redis = require('redis');
 const { promisify } = require('util');
 
+/**
+ * @param {Object} params - OpenWhisk parameters
+ * @return {Object} OpenWhisk web action response
+ */
 function main(params) {
   if (params.__ow_path === undefined) {
     return { statusCode: 400, body: 'Bad Request' };
@@ -9,20 +13,24 @@ function main(params) {
   const redisClient = createRedisClient(params);
   const redisGetAsync = promisify(redisClient.get).bind(redisClient);
 
-  return redisGetAsync(params.__ow_path).then(function(res) {
+  return redisGetAsync(params.__ow_path).then((res) => {
     if (res === null) {
       throw new Error;
     }
     redisClient.quit();
     return { statusCode: 301, headers: { location: res } };
-  }).catch(function() {
+  }).catch(() => {
     redisClient.quit();
     return { statusCode: 404, body: 'Not Found' };
   });
 }
 
+/**
+ * @param {Object} params - OpenWhisk parameters
+ * @return {RedisClient} Redis client
+ */
 function createRedisClient(params) {
-  var redisOptions = {};
+  let redisOptions = {};
   if (params.redisUrl !== undefined) {
     redisOptions.url = params.redisUrl;
   }
