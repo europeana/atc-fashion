@@ -27,6 +27,14 @@ wsk action create redirect fashion_redirects.js --web true --kind nodejs:10 \
 npm install
 ```
 
+## Tests
+
+Tests require docker-compose to run a Redis service.
+
+```
+npm test
+```
+
 ## License
 
 Licensed under the EUPL V.1.1.

@@ -11,9 +11,9 @@ function main(params = {}) {
   }
 
   const redisClient = createRedisClient(params);
-  const redisGetAsync = promisify(redisClient.get).bind(redisClient);
+  const redisGet = promisify(redisClient.get).bind(redisClient);
 
-  return redisGetAsync(params.__ow_path).then((res) => {
+  return redisGet(params.__ow_path).then((res) => {
     if (res === null) {
       throw new Error;
     }
@@ -44,3 +44,4 @@ function createRedisClient(params) {
 }
 
 exports.main = main;
+exports.createRedisClient = createRedisClient;
