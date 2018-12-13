@@ -1,14 +1,7 @@
 const redis = require('redis');
 const { promisify } = require('util');
 
-/**
-  *
-  * @param Cloud Functions actions accept a single parameter, which must be a JSON object.
-  *
-  * @return The output of this action, which must be a JSON object.
-  *
-  */
-function redirectFashion(params) {
+function main(params) {
   if (params.__ow_path === undefined) {
     return { statusCode: 400, body: 'Bad Request' };
   }
@@ -42,4 +35,4 @@ function createRedisClient(params) {
   return redis.createClient(redisOptions);
 }
 
-exports.main = redirectFashion;
+exports.main = main;
