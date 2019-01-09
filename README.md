@@ -1,4 +1,4 @@
-# Assimilation Traffic Control: Europeana Fashion
+# Assimilated Traffic Control: Europeana Fashion
 
 Redirects from Europeana Fashion website URLs to equivalents on other
 Europeana websites, as an OpenWhisk web action.

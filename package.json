@@ -1,10 +1,9 @@
 {
   "name": "@europeana/atc-fashion",
-  "description": "Assimilation Traffic Control: HTTP redirection for once-standalone Europeana Fashion sites.",
+  "description": "Assimilated Traffic Control: HTTP redirection for once-standalone Europeana Fashion sites.",
   "author": "Richard Doe <richard.doe@europeana.eu>",
   "keywords": [
     "code4lib",
-    "assimilation",
     "http",
     "redirection",
     "openwhisk"
