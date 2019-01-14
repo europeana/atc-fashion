@@ -14,34 +14,34 @@ describe('main()', () => {
     redisClient.quit();
   });
 
-  it('should return statusCode 400 if no path is passed', (done) => {
+  it('should return statusCode 400 if no path is passed', () => {
     let mainPromise = action.main();
 
-    mainPromise.then((response) => {
+    return mainPromise.then((response) => {
       expect(response.statusCode).to.equal(400);
-    }).finally(done);
+    });
   });
 
-  it('should return a redirect if valid path is passed', (done) => {
+  it('should return a redirect if valid path is passed', () => {
     let mainPromise = action.main({
       redisUrl: redisUrl,
       __ow_path: '/'
     });
 
-    mainPromise.then((response) => {
+    return mainPromise.then((response) => {
       expect(response.statusCode).to.equal(301);
       expect(response.headers.location).to.equal('http://example.org/');
-    }).finally(done);
+    });
   });
 
-  it('should return statusCode 404 if invalid path is passed', (done) => {
+  it('should return statusCode 404 if invalid path is passed', () => {
     let mainPromise = action.main({
       redisUrl: redisUrl,
       __ow_path: '/invalid'
     });
 
-    mainPromise.then((response) => {
+    return mainPromise.then((response) => {
       expect(response.statusCode).to.equal(404);
-    }).finally(done);
+    });
   });
 });
