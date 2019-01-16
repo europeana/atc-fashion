@@ -15,7 +15,7 @@ the client will be redirected.
 ## Deploy to OpenWhisk
 
 ```
-wsk action create atc/fashion src/action.js --web true --kind nodejs:10
+wsk action create atc/fashion src/action.js --web true --kind nodejs:10 -m 128
 ```
 
 Optionally include Redis URL and Base64-encoded CA certificate:
