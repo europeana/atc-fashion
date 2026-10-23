@@ -8,7 +8,7 @@ and expect as the response a full URL to which the client will be redirected.
 
 ## Dependencies
 
-* Node.js 16
+* Node.js 24
 * Redis
 
 ## Install
